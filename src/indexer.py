@@ -1,13 +1,11 @@
 from pathlib import Path
 from collections import defaultdict
-from tokenizer import tokenize
+from src.tokenizer import tokenize
 
-def open_docs() -> dict[str, list[str]]:
+def open_docs(docs_path) -> dict[str, list[str]]:
     documents = {}
-    base_dir = Path(__file__).resolve().parent.parent # Get projects absolute directory
-    path = base_dir / "tests" # Access txt files' directory
     try:
-        for file_path in path.glob("*.txt"):
+        for file_path in docs_path.glob("*.txt"):
             with open(file_path, "r", encoding="utf-8") as file:
                 text = file.read()
                 tokens = tokenize(text) # Tokenize string
