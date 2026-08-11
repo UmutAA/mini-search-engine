@@ -1,9 +1,8 @@
-from typing import List
 from pathlib import Path
 from collections import defaultdict
 from tokenizer import tokenize
 
-def open_docs() -> dict[str, List[str]]:
+def open_docs() -> dict[str, list[str]]:
     documents = {}
     base_dir = Path(__file__).resolve().parent.parent # Get projects absolute directory
     path = base_dir / "tests" # Access txt files' directory
@@ -22,7 +21,7 @@ def open_docs() -> dict[str, List[str]]:
 
     return documents
 
-def build_index(documents: dict[str,List[str]]) -> dict[str, set[str]]:
+def build_index(documents: dict[str,list[str]]) -> dict[str, set[str]]:
     index = defaultdict(set)
     for document, tokens in documents.items():
         for token in tokens:
