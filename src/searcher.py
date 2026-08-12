@@ -1,14 +1,28 @@
 from src.tokenizer import tokenize
 
-def search(query: str, index: dict[str, set[str]]) -> set[str] | str:
-    documents = set()
+def search(query: str, index: dict[str, set[str]], mode="or") -> set[str]:
     query_tokens = tokenize(query) 
-    for query_token in query_tokens:
-        if query_token not in index:
-            continue
+    match mode:
+        case "or":
+            documents = set()
+            for query_token in query_tokens:
+                if query_token not in index:
+                    continue
 
-        for doc in index[query_token]:
-            documents.add(doc)
+                for doc in index[query_token]:
+                    documents.add(doc)
+
+        case "and":
+            if not query_tokens:
+                return set()
+            documents = index[query_tokens[0]]
+            for query_token in query_tokens:
+                if query_token not in index:
+                    return set()
+                documents &= index[query_token]
+        case _:
+            raise ValueError("Invalid Mode")
+        
     if not documents:
-        return "No result found"
+        return set()
     return documents

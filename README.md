@@ -115,10 +115,52 @@ currently performs an OR-based search and returns documents containing at least 
 
 ## Demo
 
-![Basic keyword search demo](test_results/basic_search.png)
+![Keyword search demo](test_results/or_and_search.png)
 
-## Status
+## Roadmap
 
-🚧 **Early development**
+The project will be developed incrementally, starting with basic keyword retrieval and gradually progressing toward more advanced information retrieval and semantic search techniques.
 
-The current version implements a basic inverted-index-based keyword search engine. More advanced retrieval and ranking techniques will be added progressively.
+### V1 — Basic Search
+- [x] Read `.txt` documents
+- [x] Tokenization
+- [x] Build an inverted index
+- [x] Single-word search
+- [x] Multi-word OR search
+
+### V2 — Advanced Keyword Search
+- [x] OR search
+- [x] AND search
+- [ ] Phrase search
+- [ ] Better query handling
+- [ ] Search result ranking
+
+### V3 — Information Retrieval
+- [ ] Positional index
+- [ ] Stop-word removal
+- [ ] Term Frequency (TF)
+- [ ] Inverse Document Frequency (IDF)
+- [ ] TF-IDF ranking
+- [ ] BM25 ranking
+
+### V4 — Semantic Search
+- [ ] Text embeddings
+- [ ] Vector similarity
+- [ ] Semantic retrieval
+- [ ] Hybrid keyword + semantic search
+
+### V5 — Advanced Search System
+- [ ] Query parsing
+- [ ] Query expansion
+- [ ] Re-ranking
+- [ ] Search evaluation metrics
+- [ ] Performance optimization
+- [ ] Large-scale document collections
+
+### V6 — Production-Oriented Improvements
+- [ ] Persistent index
+- [ ] Incremental indexing
+- [ ] Parallel document processing
+- [ ] Index compression
+- [ ] Search latency optimization
+- [ ] Web interface / API

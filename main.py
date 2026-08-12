@@ -5,9 +5,25 @@ from src.indexer import open_docs, build_index
 docs_path = Path(__file__).resolve().parent / "tests"
 
 docs = open_docs(docs_path)
-indices = build_index(docs)
+index = build_index(docs)
 
-query = input("Enter your query: ")
+print("------ Search Engine ------")
+while True:
+    print("To exit type 'exit'")
+    query = input("Enter your query: ")
 
-results = search(query, indices)
-print(results)
+    if query.lower() == "exit":
+        break
+
+    mode = input("Enter your query mode (or/and): ").lower()
+    try:
+        results = search(query, index, mode)
+    except ValueError:
+        print("Error: Unknown Mode. Please enter a valid mode (or/and).\n")
+        continue
+
+    if not results:
+        print("No result found\n")
+    else:
+        print(f"{results}\n")
+
