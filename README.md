@@ -111,7 +111,6 @@ For example:
 Query: python programming
 ```
 
-currently performs an OR-based search and returns documents containing at least one of the query terms.
 
 ## Demo
 
