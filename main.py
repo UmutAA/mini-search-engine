@@ -26,4 +26,3 @@ while True:
         print("No result found\n")
     else:
         print(f"{results}\n")
-

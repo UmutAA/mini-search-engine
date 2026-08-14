@@ -19,9 +19,10 @@ def open_docs(docs_path) -> dict[str, list[str]]:
 
     return documents
 
-def build_index(documents: dict[str,list[str]]) -> dict[str, set[str]]:
-    index = defaultdict(set)
+def build_index(documents: dict[str,list[str]]) -> dict[str, dict[str, set[int]]]:
+    index = defaultdict(lambda: defaultdict(set))
     for document, tokens in documents.items():
-        for token in tokens:
-            index[token].add(document)
+        for position, token in enumerate(tokens):
+            index[token][document].add(position)
+
     return index

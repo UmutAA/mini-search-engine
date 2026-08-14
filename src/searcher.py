@@ -1,6 +1,6 @@
 from src.tokenizer import tokenize
 
-def search(query: str, index: dict[str, set[str]], mode="or") -> set[str]:
+def search(query: str, index: dict[str, dict[str, set[int]]], mode="or") -> set[str]:
     query_tokens = tokenize(query) 
     match mode:
         case "or":
