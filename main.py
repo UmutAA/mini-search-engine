@@ -1,5 +1,5 @@
 from pathlib import Path
-from src.searcher import search
+from src.searcher import search,phrase_search
 from src.indexer import open_docs, build_index
 
 docs_path = Path(__file__).resolve().parent / "tests"
@@ -15,11 +15,11 @@ while True:
     if query.lower() == "exit":
         break
 
-    mode = input("Enter your query mode (or/and): ").lower()
+    mode = input("Enter your query mode (or/and/phrase): ").lower()
     try:
         results = search(query, index, mode)
     except ValueError:
-        print("Error: Unknown Mode. Please enter a valid mode (or/and).\n")
+        print("Error: Unknown Mode. Please enter a valid mode (or/and/phrase).\n")
         continue
 
     if not results:

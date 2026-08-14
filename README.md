@@ -130,7 +130,7 @@ The project will be developed incrementally, starting with basic keyword retriev
 ### V2 — Advanced Keyword Search
 - [x] OR search
 - [x] AND search
-- [ ] Phrase search
+- [x] Phrase search
 - [ ] Better query handling
 - [ ] Search result ranking
 
