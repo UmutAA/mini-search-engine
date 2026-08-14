@@ -10,7 +10,8 @@ def search(query: str, index: dict[str, dict[str, set[int]]], mode="phrase") -> 
                 if query_token not in index:
                     continue
 
-                documents.update(index[query_token])
+                for doc in index[query_token]:
+                    documents.add(doc)
 
         case "and":
             if not query_tokens:

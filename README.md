@@ -41,13 +41,13 @@ Document → Tokens
 Inverted Index
     │
     ▼
-Token → Documents
+Token → Documents → Positions
     │
     ▼
 Search Query
     │
     ▼
-Matching Documents
+Matching Documents and Positions
 ```
 
 ## Project Structure
@@ -57,6 +57,9 @@ mini-search-engine/
 │
 ├── tests/
 │   └── *.txt
+│
+├── test_results/
+│   └── *.png
 │
 ├── src/
 │   ├── tokenizer.py
@@ -94,9 +97,9 @@ The documents are converted into an inverted index.
 For example:
 
 ```text
-python → {"python.txt", "ai.txt"}
-algorithm → {"algorithms.txt"}
-machine → {"machine_learning.txt"}
+python → {"python.txt": (0, 12, 15, 20), "ai.txt": (16)}
+algorithm → {"algorithms.txt": (52)}
+machine → {"machine_learning.txt": (20, 35, 46)}
 ```
 
 This allows the search engine to quickly find which documents contain a given word without scanning every document for every query.
@@ -114,7 +117,7 @@ Query: python programming
 
 ## Demo
 
-![Keyword search demo](test_results/or_and_search.png)
+![Keyword search demo](test_results/phrase_search.png)
 
 ## Roadmap
 
