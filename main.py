@@ -1,5 +1,5 @@
 from pathlib import Path
-from src.searcher import search,phrase_search
+from src.searcher import search
 from src.indexer import open_docs, build_index
 
 docs_path = Path(__file__).resolve().parent / "tests"
@@ -12,10 +12,14 @@ while True:
     print("To exit type 'exit'")
     query = input("Enter your query: ")
 
-    if query.lower() == "exit":
+    if query.lower().strip() == "exit":
         break
 
-    mode = input("Enter your query mode (or/and/phrase): ").lower()
+    if not query.strip():
+        print("Query cannot be empty")
+        continue
+
+    mode = input("Enter your query mode (or/and/phrase): ").lower().strip()
     try:
         results = search(query, index, mode)
     except ValueError:

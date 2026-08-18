@@ -134,7 +134,7 @@ The project will be developed incrementally, starting with basic keyword retriev
 - [x] OR search
 - [x] AND search
 - [x] Phrase search
-- [ ] Better query handling
+- [x] Better query handling
 - [ ] Search result ranking
 
 ### V3 — Information Retrieval
